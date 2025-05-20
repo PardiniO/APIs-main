@@ -3,6 +3,34 @@ import { moverCarrusel } from "./ui/carrusel.js";
 import { cargarAutores } from "./api/autores.js";
 import { detalleAutor } from "./ui/detalleAutor.js";
 
+function menu() {
+    const menuBtn = document.getElementById('menu-btn');
+    if (menuBtn) {
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.classList.toggle('activo');
+        });
+        document.addEventListener('click', () => {
+            menuBtn.classList.remove('activo');
+        });
+    }
+
+    const toggle = document.getElementById('generos-menu-toggle');
+    const submenu = document.getElementById('generos-submenu');
+    if (toggle && submenu) {
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            submenu.style.display = submenu.style.display === 'none' ? 'block' : 'none';
+        });
+        document.addEventListener('click', () => {
+            submenu.style.display = 'none';
+        });
+        submenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     try {
         cargarLibrosTop();
@@ -10,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         moverCarrusel();
         cargarAutores();
         detalleAutor();
+        menu();
     } catch (error) {
         console.error('Error al cargar la página:', error);
         msjError('Error al cargar la página. Por favor, inténtelo de nuevo más tarde.');
@@ -23,8 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function manejarBusqueda() {
         const query = inputBusqueda.value.trim();
         if (query) {
+            const seccionResultados = document.querySelector('.busqueda-contenedor');
+            if (seccionResultados) seccionResultados.style.display = 'flex';
+            document.querySelectorAll('main > section:not(.busqueda-contenedor)').forEach((sec) => {
+                sec.style.display = 'none';
+            });
             buscarLibros(query);
-          }
+        }
     }
 
     if (iconoBusqueda) {

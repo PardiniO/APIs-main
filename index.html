@@ -15,14 +15,31 @@
             <strong>Librital</strong>
         </div>
         
-        <div id="menu">
-            <p><a href="#">Inicio</a></p>
-            <p><a href="#">Sorprendeme</a></p>
-            <nav id="menu-nav">
-                <a href="#">Inicio</a>
-                <a href="#">mas cosas</a>
-                <a href="#">otras cosas</a>
-            </nav>
+        <div id="menu-contenedor">
+            <button id="menu-btn" aria-label="Abrir menú"> Inicio
+                <span>Inicio</span>
+                <span id="generos-menu-toggle">Géneros</span>
+                <span>Mi biblioteca</span>
+                <span>Ajustes</span>
+            </button>
+            <div id="generos-submenu" style="display: none;">
+                <label><input type="checkbox" name="genero" value="accion-aventura">Acción y Aventura</label>
+                <label><input type="checkbox" name="genero" value="clasicos">Clásicos</label>
+                <label><input type="checkbox" name="genero" value="ciencia-ficcion">Ciencia Ficción</label>
+                <label><input type="checkbox" name="genero" value="no-ficcion">No Ficción</label>
+                <label><input type="checkbox" name="genero" value="novela-graf">Novela Gráfica</label>
+                <label><input type="checkbox" name="genero" value="misterio">Misterio</label>
+                <label><input type="checkbox" name="genero" value="fantasia">Fantasía</label>
+                <label><input type="checkbox" name="genero" value="fantasia-epica">Fantasía Épica</label>
+                <label><input type="checkbox" name="genero" value="ficcion-infantil">Ficción Infantil</label>
+                <label><input type="checkbox" name="genero" value="ficcion-historica">Ficción Histórica</label>
+                <label><input type="checkbox" name="genero" value="romance">Romance</label>
+                <label><input type="checkbox" name="genero" value="terror">Terror</label>
+                <label><input type="checkbox" name="genero" value="thriller">Thriller</label>
+                <label><input type="checkbox" name="genero" value="YA">Young Adult</label>
+                <button id="aplicar-generos">Aplicar</button>
+            </div>
+            <button id="libro-random">Explorar</button>
         </div>
         
         <div id="buscador">
@@ -126,10 +143,6 @@
             <div id="autores"></div>
         </section>
         
-        <section class="detalle-libro" style="display: none;">
-
-        </section>
-
         <section id="detalle-autor" style="display: none;">
             <h1 id="nombre-autor"></h1>
             <img id="foto-autor" src="" alt="Fotografía del autor">
@@ -197,7 +210,7 @@
 
         <section class="detalle-libro" style="display: none;">
             <div class="portada-contenido">
-                <div class="detalle-libro">
+                <div>
                     <img id="portada-libro" src="" alt="Portada del libro">
                     <div class="opciones-libro">
                         <button id="btn-agregar-biblioteca">Agregar</button>

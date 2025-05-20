@@ -30,7 +30,7 @@ export async function buscarLibros(query, pagina = 1, resultadosPorPagina = 10) 
 
         data.items?.forEach(libroRow => {
             const libro = LibroInfo.fromGoogleBooks(libroRow);
-            const card = new LibroCard(libro, (libro) => console.log(libro));
+            const card = new LibroCard(libro, (libro) => LibroDetalle.mostrar(libro));
             contenedor.appendChild(card.render());
         });
 

@@ -145,6 +145,36 @@ header.nav {
     cursor: pointer;
 }
 
+#menu-btn span {
+    display: none;
+}
+#menu-btn.activo span {
+    display: block;
+    background: var(--btns-claros);
+    color: var(--texto);
+    padding: 0.5rem;
+    margin: 4px 0;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+#generos-submenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: var(--btns-claros);
+    border: 1px solid var(--marron-btns);
+    z-index: 100;
+    min-width: 220px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    padding: 1rem;
+    border-radius: 5px;
+}
+#menu-contenedor {
+    position: relative;
+}
+
 .sidebar {
     background-color: var(--barra-busqueda);
     color: var(--texto);
