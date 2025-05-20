@@ -123,4 +123,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         contenedor.innerHTML = `<p style="color: red; font-weight: bold;">${mensaje}</p>`;
     }
+
+    const btnInicio = document.querySelector('#menu-btn span:first-child');
+    if (btnInicio) {
+        btnInicio.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            document.querySelectorAll('main > section').forEach((sec) => sec.style.display = 'none');
+            const carrusel = document.querySelector('.carrusel-seccion');
+            const autores = document.querySelector('.autores-seccion');
+            const generos = document.querySelector('.generos');
+            if (carrusel) carrusel.style.display = 'block';
+            if (autores) autores.style.display = 'block';
+            if (generos) generos.style.display = 'block';
+        })
+    }
 });
