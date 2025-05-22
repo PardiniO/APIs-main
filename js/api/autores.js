@@ -3,8 +3,8 @@ import { AutorCard } from "../clases/AutorCard.js";
 const autoresIDs = [
   'OL23919A',        // J.K. Rowling
   'OL19981A',      // Stephen King
+  'OL2671323A',      // Han Kang
   'OL1394865A',       // Brandon Sanderson 
-  'OL19450A',      // Virginia Woolf
 ];
 
 export async function cargarAutores() {

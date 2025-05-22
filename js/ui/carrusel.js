@@ -15,9 +15,11 @@ export function moverCarrusel() {
 
         [btnIzq, btnDer].forEach(boton => {
             boton.addEventListener('click', () => {
+                const item = carrusel.querySelector('.item-carrusel');
+                if (!item) return;
+                const visibleCount = 4;
+                const itemWidth = item.offsetWidth + parseInt(getComputedStyle(carrusel).gap || 0, 10);
                 const direccion = boton.classList.contains('btn-izq') ? -1 : 1;
-                const ancho = carrusel.querySelector('.item-carrusel')?.offsetWidth || 200;
-                carrusel.scrollBy({ left: direccion * (ancho + 20), behavior: 'smooth' });
                 setTimeout(actualizarVisibilidad, 400);
             });
         });

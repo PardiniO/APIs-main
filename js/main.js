@@ -1,7 +1,7 @@
 import { buscarLibros, crearPaginacion, cargarLibrosTop, cargarLibrosPublicos } from "./api/libros.js";
 import { moverCarrusel } from "./ui/carrusel.js";
 import { cargarAutores } from "./api/autores.js";
-import { detalleAutor } from "./ui/detalleAutor.js";
+import { detalleAutor } from "./api/detalleAutor.js";
 
 function menu() {
     const menuBtn = document.getElementById('menu-btn');
