@@ -124,14 +124,36 @@ document.addEventListener('DOMContentLoaded', () => {
         contenedor.innerHTML = `<p style="color: red; font-weight: bold;">${mensaje}</p>`;
     }
 
-    const btnInicio = document.querySelector('#menu-btn span:first-child');
+    const menuBtn = document.getElementById('menu-btn');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', !expanded);
+        dropdownMenu.style.display = expanded ? 'none' : 'block';
+    });
+
+    const generosToggle = document.getElementById('generos-menu-toggle');
+    const generosSubmenu = document.getElementById('generos-submenu');
+    const hasSubmenu = generosToggle.closest('.has-submenu');
+    generosToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        hasSubmenu.classList.toggle('open');
+    });
+    document.addEventListener('click', () => {
+        dropdownMenu.style.display = 'none';
+        menuBtn.setAttribute('aria-expanded', 'false');
+        hasSubmenu.classList.remove('open');
+    });
+
+    const btnInicio = document.getElementById('btn-inicio');
     if (btnInicio) {
         btnInicio.addEventListener('click', (e) => {
             e.stopPropagation();
 
             document.querySelectorAll('main > section').forEach((sec) => sec.style.display = 'none');
             const carrusel = document.querySelector('.carrusel-seccion');
-            const autores = document.querySelector('.autores-seccion');
+            const autores = document.getElementById('autores-seccion');
             const generos = document.querySelector('.generos');
             if (carrusel) carrusel.style.display = 'block';
             if (autores) autores.style.display = 'block';

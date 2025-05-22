@@ -16,30 +16,35 @@
         </div>
         
         <div id="menu-contenedor">
-            <button id="menu-btn" aria-label="Abrir menú"> Inicio
-                <span>Inicio</span>
-                <span id="generos-menu-toggle">Géneros</span>
-                <span>Mi biblioteca</span>
-                <span>Ajustes</span>
-            </button>
-            <div id="generos-submenu" style="display: none;">
-                <label><input type="checkbox" name="genero" value="accion-aventura">Acción y Aventura</label>
-                <label><input type="checkbox" name="genero" value="clasicos">Clásicos</label>
-                <label><input type="checkbox" name="genero" value="ciencia-ficcion">Ciencia Ficción</label>
-                <label><input type="checkbox" name="genero" value="no-ficcion">No Ficción</label>
-                <label><input type="checkbox" name="genero" value="novela-graf">Novela Gráfica</label>
-                <label><input type="checkbox" name="genero" value="misterio">Misterio</label>
-                <label><input type="checkbox" name="genero" value="fantasia">Fantasía</label>
-                <label><input type="checkbox" name="genero" value="fantasia-epica">Fantasía Épica</label>
-                <label><input type="checkbox" name="genero" value="ficcion-infantil">Ficción Infantil</label>
-                <label><input type="checkbox" name="genero" value="ficcion-historica">Ficción Histórica</label>
-                <label><input type="checkbox" name="genero" value="romance">Romance</label>
-                <label><input type="checkbox" name="genero" value="terror">Terror</label>
-                <label><input type="checkbox" name="genero" value="thriller">Thriller</label>
-                <label><input type="checkbox" name="genero" value="YA">Young Adult</label>
-                <button id="aplicar-generos">Aplicar</button>
+            <button id="btn-inicio">Inicio</button>
+            <div class="dropdown">
+                <button id="menu-btn" aria-haspopup="true" aria-expanded="false"> Explorar</button>
+                <ul class="dropdown-menu" id="dropdown-menu" style="display: none;">
+                    <li class="has-submenu">
+                        <span id="generos-menu-toggle">Géneros</span>
+                        <ul class="submenu" id="generos-submenu" style="display: none;">
+                            <li><label><input type="checkbox" name="genero" value="accion-aventura">Acción y Aventura</label></li>
+                            <li><label><input type="checkbox" name="genero" value="clasicos">Clásicos</label></li>
+                            <li><label><input type="checkbox" name="genero" value="ciencia-ficcion">Ciencia Ficción</label></li>
+                            <li><label><input type="checkbox" name="genero" value="no-ficcion">No Ficción</label></li>
+                            <li><label><input type="checkbox" name="genero" value="novela-graf">Novela Gráfica</label></li>
+                            <li><label><input type="checkbox" name="genero" value="misterio">Misterio</label></li>
+                            <li><label><input type="checkbox" name="genero" value="fantasia">Fantasía</label></li>
+                            <li><label><input type="checkbox" name="genero" value="fantasia-epica">Fantasía Épica</label></li>
+                            <li><label><input type="checkbox" name="genero" value="ficcion-infantil">Ficción Infantil</label></li>
+                            <li><label><input type="checkbox" name="genero" value="ficcion-historica">Ficción Histórica</label></li>
+                            <li><label><input type="checkbox" name="genero" value="romance">Romance</label></li>
+                            <li><label><input type="checkbox" name="genero" value="terror">Terror</label></li>
+                            <li><label><input type="checkbox" name="genero" value="thriller">Thriller</label></li>
+                            <li><label><input type="checkbox" name="genero" value="YA">Young Adult</label></li>
+                            <li><button id="aplicar-generos">Aplicar</button></li>
+                        </ul>
+                    </li>
+                    <li><span id="mi-biblioteca">Mi biblioteca</span></li>
+                    <li><span id="aleatorio">Libro aleatorio</span></li>
+                    <li><span>Ajustes</span></li>
+                </ul>
             </div>
-            <button id="libro-random">Explorar</button>
         </div>
         
         <div id="buscador">
@@ -89,12 +94,15 @@
     
     <main>
         <section class="busqueda-contenedor" style="display: none;">
-            <button id="cerrar-busqueda" aria-label="Cerrar búsqueda">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXgtaWNvbiBsdWNpZGUteCI+PHBhdGggZD0iTTE4IDYgNiAxOCIvPjxwYXRoIGQ9Im02IDYgMTIgMTIiLz48L3N2Zz4=" alt="Cerrar búsqueda">
-            </button>
-            <hr>
-            <h2>Resultados de...</h2>
-            <p id="cantidad-resultados"></p>
+            <div class="pag-busqueda">
+                <div class="titulo-busqueda">
+                    <h2>Resultados de la busqueda</h2>
+                    <p id="cantidad-resultados"></p>
+                </div>
+                <button id="cerrar-busqueda" aria-label="Cerrar búsqueda">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXgtaWNvbiBsdWNpZGUteCI+PHBhdGggZD0iTTE4IDYgNiAxOCIvPjxwYXRoIGQ9Im02IDYgMTIgMTIiLz48L3N2Zz4=" alt="Cerrar búsqueda">
+                </button>
+            </div>
             <div id="resultados-libros"></div>
             <div id="paginacion"></div>
         </section>
@@ -144,21 +152,24 @@
         </section>
         
         <section id="detalle-autor" style="display: none;">
-            <h1 id="nombre-autor"></h1>
-            <img id="foto-autor" src="" alt="Fotografía del autor">
-            <p id="biografia"></p>
-            <h2>Obras del autor </h2>
-            <ul id="lista-obras"></ul>
-        </section>
+            <div class="autor-contenido">
+                <div>
+                    <img id="foto-autor" src="" alt="Fotografía del autor">
+                    <div class="opciones-autor">
+                        <button id="btn-agregar-autor">Agregar</button>
+                    </div>
+                </div>
+                <div class="contenido-autor">
+                    <h1 id="nombre-autor"></h1>
+                    <p id="biografia"></p>
+                    <p><strong>Géneros que escribe:</strong> <span id="genero-libro"></span></p>
+                </div>
+                <div class="obras-autor">
+                    <h2>Obras del autor </h2>
+                    <p id="cantidad-obras"></p>
 
-        <section class="biblioteca" style="display: none;">
-            <h2>Mi biblioteca</h2>
-            <div id="Libros-guardados">
-                <ul>
-                    <li><a href="#">Quiero leer</a></li>
-                    <li><a href="#">Leyendo</a></li>
-                    <li><a href="#">Leidos</a></li>
-                </ul>
+                    <ul id="lista-obras"></ul>
+                </div>    
             </div>
         </section>
         
@@ -166,7 +177,10 @@
             <h2>Géneros</h2>
             <ul>
                 <li><a href="#fantasia">Fantasía</a>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wand-sparkles-icon lucide-wand-sparkles"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/></svg>
+                    <!--<img src="https://img.freepik.com/fotos-premium/dragon-volando-cielo-montanas-fondo_943617-39057.jpg?ga=GA1.1.706437868.1747777045&semt=ais_hybrid&w=740" alt="Fantasía" aria-label="Ver más sobre Fantasía">
+                    -->
+                    <!--<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wand-sparkles-icon lucide-wand-sparkles"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/></svg>
+                    -->
                 </li>
                 <li><a href="#ciencia-ficción">Ciencia ficción</a>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rocket-icon lucide-rocket"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
@@ -174,7 +188,7 @@
                 <li><a href="#romance">Romance</a>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                 </li>
-                <li><a href="#historia">Historia</a>
+                <li><a href="#thriller">Thriller</a>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scroll-icon lucide-scroll"><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg>
                 </li>
                 <li><a href="#terror">Terror</a>
@@ -186,25 +200,32 @@
             </ul>
         </section>
 
-        <section class="biblioteca" style="display: none;">
-            <div>
-                <h2>Leyendo</h2>
-                <div></div>
+        <section class="biblioteca-seccion" style="display: none;">
+            <div class="biblioteca">
+                <div>
+                    <h2>Leyendo</h2>
+                    <div id="leyendo"></div>
+                </div>
+
+                <div>
+                    <h2>Leídos</h2>
+                    <div id="leidos"></div>
+                </div>
+                
+                <div>
+                    <h2>Para leer</h2>
+                    <div id="para-leer"></div>
+                </div>
+            </div>
+            
+            <div class="autor-guardado">
+                <h2>Autores guardados</h2>
+                <div id="lista-autor-guardado"></div>
             </div>
 
-            <div>
-                <h2>Leídos</h2>
-                <div></div>
-            </div>
-            
-            <div>
-                <h2>Para leer</h2>
-                <div></div>
-            </div>
-            
-            <div>
+            <div class="reseñas-usuario">
                 <h2>Tus reseñas</h2>
-                <div></div>
+                <div id="ver-reseña"></div>
             </div>
         </section>
 
@@ -220,7 +241,7 @@
                 </div>
                 <div class="contenido-libro">
                     <h1 id="titulo-libro"></h1>
-                    <h2 id="autor-libro"></h2>
+                    <h2 id="autor-libro"><a href="#"></a></h2>
                     <p><strong>Rating:</strong> <span id="rating-libro"></span></p>
                     <p><strong>Género:</strong> <span id="genero-libro"></span></p>
                     <p><strong>Páginas:</strong> <span id="paginas-libro"></span></p>
