@@ -6,24 +6,26 @@ export function moverCarrusel() {
         const btnIzq = wrapper.querySelector('.btn-izq');
         const btnDer = wrapper.querySelector('.btn-der');
 
-        const actualizarVisibilidad = () => {
-            btnIzq.classList.toggle('hidden', carrusel.scrollLeft === 0);
-            const scrollMax = carrusel.scrollWidth - carrusel.clientWidth - 1;
-            btnDer.classList.toggle('hidden', carrusel.scrollLeft >= scrollMax);
-        };
-        actualizarVisibilidad();
+        if (!carrusel || !btnIzq || !btnDer) return;
 
-        [btnIzq, btnDer].forEach(boton => {
-            boton.addEventListener('click', () => {
-                const item = carrusel.querySelector('.item-carrusel');
-                if (!item) return;
-                const visibleCount = 4;
-                const itemWidth = item.offsetWidth + parseInt(getComputedStyle(carrusel).gap || 0, 10);
-                const direccion = boton.classList.contains('btn-izq') ? -1 : 1;
-                setTimeout(actualizarVisibilidad, 400);
-            });
+        const getItemWidth = () => {
+            const item = carrusel.querySelector('.item-carrusel');
+            if (!item) return 0;
+            const style = getComputedStyle(carrusel);
+            const gap = parseInt(style.gap || 0, 10);
+            return item.offsetWidth + gap;
+        }
+
+        const visibleCount = 4;
+        
+        btnIzq.addEventListener('click', () => {
+            const scrollAmount = getItemWidth() * visibleCount;
+            carrusel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
 
-        carrusel.addEventListener('scroll', actualizarVisibilidad);
+        btnDer.addEventListener('click', () => {
+            const scrollAmount = getItemWidth() * visibleCount;
+            carrusel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
     });
 }

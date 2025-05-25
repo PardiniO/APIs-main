@@ -49,6 +49,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnCerrarBusqueda = document.getElementById('cerrar-busqueda');
     const menuOpciones = document.getElementById('menu');
 
+    function filtrosBusqueda() {
+        const filtros = {};
+        document.querySelectorAll('#filtros-checkbox input[type="checkbox"]:checked').forEach(cb => {
+            filtros[cb.name] = true;
+        });
+        const ordenar = document.getElementById('ordenar');
+        if (ordenar) filtros.ordenar = ordenar.value;
+        return filtros;
+    }
+
     function manejarBusqueda() {
         const query = inputBusqueda.value.trim();
         if (query) {
@@ -57,7 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('main > section:not(.busqueda-contenedor)').forEach((sec) => {
                 sec.style.display = 'none';
             });
-            buscarLibros(query);
+            const filtros = filtrosBusqueda();
+            buscarLibros(query, 1, 10, filtros);
         }
     }
 
@@ -91,8 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const contenedor = document.getElementById('resultados-libros');
             const contador = document.getElementById('cantidad-resultados');
+            const barraBusueda = document.getElementById('busqueda');
             if (contenedor) contenedor.innerHTML = '';
             if (contador) contador.innerHTML = '';
+            if (barraBusueda) barraBusueda.value = '';
         });
     }
 
@@ -158,6 +171,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (carrusel) carrusel.style.display = 'block';
             if (autores) autores.style.display = 'block';
             if (generos) generos.style.display = 'block';
+
+            const barraBusueda = document.getElementById('busqueda');
+            if (barraBusueda) barraBusueda.value = '';
         })
     }
 });

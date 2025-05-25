@@ -271,16 +271,21 @@ header.nav {
     border: 1px solid var(--sections);
     background-color: var(--btns-claros);
 }
-
 .resultado-item img {
     width: 100px;
     height: auto;
     border-radius: 10px;
     /*object-fit: cover;*/
 }
-
 .resultado-item div {
     flex: 1;
+}
+
+.resultado-item, .item-carrusel {
+    flex: 0 0 calc(20% - 1.2rem);
+    max-width: 200px;
+    min-width: 120px;
+    box-sizing: border-box;
 }
 
 #paginacion {
@@ -299,6 +304,9 @@ header.nav {
 }
 #paginacion button.active {
     background-color: var(--otros-btns);
+    color: var(--texto);
+    font-weight: bold;
+    cursor: default;
 }
 
 .perfil {
@@ -688,9 +696,6 @@ footer {
     display: none;
     flex-direction: row;
     float: 1;
-}
-
-.resultados #resultados-libros {
     display: flex;
     flex-direction: row;
     border: none;
@@ -699,6 +704,15 @@ footer {
     margin: 1rem 0;
 }
 
+#resultados-libros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    width: 100%;
+}
 
 .libro {
     border: none;
