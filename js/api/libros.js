@@ -27,8 +27,6 @@ export async function buscarLibros(query, pagina = 1, resultadosPorPagina = 10, 
         }
         
         let libros = (data.items || []).map(LibroInfo.fromGoogleBooks);
-
-        
         
         if (filtros.autor) {
             libros = libros.filter(libro => {

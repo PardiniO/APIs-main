@@ -59,24 +59,21 @@
             </svg>
         </div>
 
-        <div id="filtros-checkbox">
-            <aside class="sidebar">
-                <h3>Filtros</h3>
-                <label><input type="checkbox" name="filtro" value="autor">Autor</label>
-                <label><input type="checkbox" name="filtro" value="titulo">Título</label>
-                <label><input type="checkbox" name="filtro" value="isbn">ISBN</label>
-                <label><input type="checkbox" name="filtro" value="genero">Género</label>
-                
-                <label for="ordenar">Ordenar por:</label>
-                <select id="ordenar">
-                    <option value="fecha">Año (desc)</option>
-                    <option value="valoracion">valoración</option>
-                    <option value="alfabetico">A-Z</option>
-
-                </select>
-            </aside>
+        <div id="filtros-contenedor" style="display: none;">
+            <div class="filtros-checkbox">
+                <label><input type="checkbox" value="autor">Autor</label>
+                <label><input type="checkbox" value="titulo">Título</label>
+                <label><input type="checkbox" value="isbn">ISBN</label>
+                <label><input type="checkbox" value="genero">Género</label>
+            </div>
+            <select id="ordenar">
+                <option value="">Ordenar por:</option>
+                <option value="fecha">Año</option>
+                <option value="valoracion">valoración</option>
+                <option value="alfabetico">A-Z</option>
+            </select>
         </div>
-
+        
         <div>
             <label class="cambiar-tema">
                 <input type="checkbox" id="modo-oscuro">

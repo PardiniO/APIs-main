@@ -185,16 +185,24 @@ header.nav {
     height: 24px;
 }
 
-#filtros-checkbox {
-    margin-top: 0.5rem;
-    display: flex;
-    flex-direction: column;
+#filtros-contenedor {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: var(--barra-busqueda);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
     flex-wrap: wrap;
     gap: 0.5rem;
-    padding: 0.5rem;
-    background-color: var(--barra-busqueda);
-    border-radius: 5px;
-    display: none;
+    padding: 1rem;
+    z-index: 100;
+    min-width: 200px;
+}
+#filtros-checkbox label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--texto);
 }
 
 .busqueda-contenedor {
@@ -290,6 +298,8 @@ header.nav {
 
 #paginacion {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 0.5rem;
     margin-top: 1rem;
 }
