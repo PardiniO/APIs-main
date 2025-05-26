@@ -40,8 +40,13 @@ export async function buscarLibros(query, pagina = 1, resultadosPorPagina = 10, 
         if (filtros.isbn) {
             libros = libros.filter(libro => libro.infoExtra.isbn && libro.infoExtra.isbn.includes(query));
         }
-        if (filtros.genero) {
-            libros = libros.filter(libro => libro.infoExtra.genero && libro.infoExtra.genero.toLowerCase().includes(query.toLowerCase()));
+        if (filtros.generos && Array.isArray(filtros.generos) && filtros.generos.length > 0) {
+            libros = libros.filter(libro => {
+                if (!libro.infoExtra.genero) return false;
+                return filtros.generos.some(generoFiltro => 
+                    libro.infoExtra.genero.toLowerCase().includes(generoFiltro.toLowerCase())
+                );
+            });
         }
         
         if (filtros.ordenar === 'fecha') {

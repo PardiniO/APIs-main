@@ -54,6 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('#filtros-checkbox input[type="checkbox"]:checked').forEach(cb => {
             filtros[cb.value] = true;
         });
+
+        const generosSeleccionados = [];
+        document.querySelectorAll('#generos-submenu input[type="checkbox"]:checked').forEach(cb => {
+            generosSeleccionados.push(cb.value);
+        });
+        if (generosSeleccionados.length > 0) {
+            filtros.generos = generosSeleccionados;
+        }
+
         const ordenar = document.getElementById('ordenar');
         if (ordenar) filtros.ordenar = ordenar.value;
         return filtros;
@@ -61,16 +70,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function manejarBusqueda() {
         const query = inputBusqueda.value.trim();
-        if (query) {
+        const filtros = filtrosBusqueda();
+        const hayFiltros = Object.keys(filtros).length > 0;
+        if (query || hayFiltros) {
             const seccionResultados = document.querySelector('.busqueda-contenedor');
             if (seccionResultados) seccionResultados.style.display = 'flex';
             document.querySelectorAll('main > section:not(.busqueda-contenedor)').forEach((sec) => {
                 sec.style.display = 'none';
             });
-            const filtros = filtrosBusqueda();
             buscarLibros(query, 1, 10, filtros);
         }
-        
     }
 
     const iconoFiltros = document.getElementById('icono-filtros');
