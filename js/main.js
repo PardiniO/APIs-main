@@ -201,4 +201,20 @@ document.addEventListener('DOMContentLoaded', () => {
             if (barraBusueda) barraBusueda.value = '';
         })
     }
+
+    document.querySelectorAll('.generos li').forEach(li => {
+        li.addEventListener('click', (e) => {
+            e.preventDefault();
+            const genero = li.textContent.trim();
+            const filtros = { generos: [genero] };
+
+            buscarLibros('', 1, 10, filtros);
+
+            const seccionResultados = document.querySelector('.busqueda-contenedor');
+            if (seccionResultados) seccionResultados.style.display = 'flex';
+            document.querySelectorAll('main > section:not(.busqueda-contenedor)').forEach((sec) => {
+                sec.style.display = 'none';
+            });
+        });
+    });
 });

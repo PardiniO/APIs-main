@@ -1,23 +1,31 @@
 :root {
     /*modo claro*/
-    --sections: #50341a;
-    --fondo-ppal: #F4E2BE;
-    --barra-busqueda: #324021;
-    --btns-claros:#c29d80;
-    --marron-btns: #66492e;
-    --estrellas: #BF7534;
-    --texto: #080500;
-    --marron-osc: #36250e;
+    --sections-osc: #0e1604;
+    --sections: #222a15;
+    --btns-claros:#6da54e;
+    --fondo-ppal: #b9cf8d;
+    --marron-btns: #fddb40;
+    --estrellas: #ed620c;
 
-    /*modo oscuro*/
-    --sections-oscuro: rgba(45, 55, 30, 1);
-    --fondo-oscuro: rgba(20, 20, 20, 1);
-    --barra-busqueda-oscuro: #252815;
-    --btns-oscuros: #141413;
-    --otros-btns: #151917;
-    --estrellas-oscuras: #50341a;
-    --texto-claro: #56595A;
-    --segundo-fondo: #0B0C0B;
+    /*Opcion 1*/
+    /*
+    --Eerie-black: #15150e;
+    --Cal-poly-green: #222a15;
+    --Emerald: #6da54e;
+    --Tea-green: #b9cf8d;
+    --yellow: #fddb40;
+    --Tangerine: #ed620c;
+    */
+
+    /*Opcion 2*/
+    /*
+    --verde-oscuro: #0e1604;
+    --Hunter-green: #293410;
+    --Dark-moss-green: #323307;
+    --Avocado: #4a5910;
+    --Fern-green: #504011;
+    --Moss-green: #887d16;
+    */
 }
 
 html, body {
@@ -29,7 +37,6 @@ html, body {
     flex-direction: column;
     font-family: serif, 'Segoe UI', sans-serif;
     background-color: var(--fondo-ppal);
-    color: var(--texto);
     overflow-x: hidden;
 }
 
@@ -40,7 +47,6 @@ header, main, footer {
 
 header.nav {
     background-color: var(--sections);
-    color: var(--texto);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -53,6 +59,7 @@ header.nav {
 }
 
 #logo {
+    color: #000;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -123,7 +130,7 @@ header.nav {
 #menu-contenedor button {
     background: none;
     border: none;
-    color: var(--texto);
+    color: var(--fondo-ppal);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -134,7 +141,7 @@ header.nav {
 #menu, #perfil, #btn-modo-osc {
     background: none;
     border: none;
-    color: var(--texto);
+    color: var(--fondo-ppal);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -145,7 +152,7 @@ header.nav {
 #menu svg, #perfil svg, #btn-modo-osc svg {
     width: 24px;
     height: 24px;
-    color: var(--texto);
+    color: #000;
 }
 
 #buscador {
@@ -153,7 +160,8 @@ header.nav {
     flex: 1;
     align-items: center;
     gap: 0.5rem;
-    background-color: var(--barra-busqueda);
+    background-color: var(--sections-osc);
+    color: var(--fondo-ppal);
     border-radius: 5px;
     padding: 0.25rem 0.5rem;
     position: relative;
@@ -189,7 +197,7 @@ header.nav {
     position: absolute;
     top: 60px;
     right: 20px;
-    background: var(--barra-busqueda);
+    background: var(--fondo-ppal);
     border: none;
     border-radius: 10px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
@@ -257,7 +265,7 @@ header.nav {
 }
 
 .sidebar {
-    background-color: var(--barra-busqueda);
+    background-color: var(--fondo-ppal);
     color: var(--texto);
     padding: 1rem;
     border-radius: 10px;
@@ -283,14 +291,14 @@ header.nav {
     width: 100px;
     height: auto;
     border-radius: 10px;
-    /*object-fit: cover;*/
+    object-fit: cover;
 }
 .resultado-item div {
     flex: 1;
 }
 
 .resultado-item, .item-carrusel {
-    flex: 0 0 calc(20% - 1.2rem);
+    flex: 0 0 calc(20% - 1rem);
     max-width: 200px;
     min-width: 120px;
     box-sizing: border-box;
@@ -332,7 +340,7 @@ main {
 
 .carrusel-section h2{
     margin-bottom: 1rem;
-    color: var(--marron-btns);
+    color: var(--sections-osc);
 }
 
 .carrusel-wrapper {
@@ -376,7 +384,7 @@ main {
 .titulo-carrusel a {
     text-decoration: none;
     margin-left: auto;
-    color: var(--texto);
+    color: #000;
     font-weight: 500;
     font-size: 1.2rem;
 }
@@ -391,7 +399,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--texto);
+    color: #000;
     z-index: 10;
     transition: background 0.2s, transform 0.2s;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
@@ -644,8 +652,8 @@ main {
 
 
 footer {
-    background-color: var(--sections);
-    color: var(--texto);
+    background-color: var(--sections-osc);
+    color: #fff;
     text-align: center;
     padding: 1rem;
     margin-top: 3rem;
@@ -670,36 +678,49 @@ footer {
 }
 
 .generos li {
-    justify-content: center;
-    text-align: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    color: #000;
     min-width: 200px;
     height: 100px;
     flex: 1 1 calc(33.33% - 1.5rem);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
+#fantasia {background-image: url('https://img.freepik.com/fotos-premium/dragon-volando-cielo-montanas-fondo_943617-39057.jpg?ga=GA1.1.706437868.1747777045&semt=ais_hybrid&w=740');}
+#ciencia-ficcion {background-image: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?fit=crop&w=400&q=80');}
+#romance { background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?fit=crop&w=400&q=80'); }
+#thriller { background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?fit=crop&w=400&q=80'); }
+#terror { background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?fit=crop&w=400&q=80'); }
+#ver-mas { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvb2stcGx1cy1pY29uIGx1Y2lkZS1ib29rLXBsdXMiPjxwYXRoIGQ9Ik0xMiA3djYiLz48cGF0aCBkPSJNNCAxOS41di0xNUEyLjUgMi41IDAgMCAxIDYuNSAySDE5YTEgMSAwIDAgMSAxIDF2MThhMSAxIDAgMCAxLTEgMUg2LjVhMSAxIDAgMCAxIDAtNUgyMCIvPjxwYXRoIGQ9Ik05IDEwaDYiLz48L3N2Zz4=');}
 
 .generos li a {
-    text-decoration: none;
-    color: var(--texto);
+    position: relative;
+    z-index: 2;
+    color: #000;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    text-shadow: 1px 1px 4px #000;
+    width: 100%;
+    height: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
     text-align: center;
 }
-
-.generos li:hover {
-    color: var(--marron-btns);
-}
-
-.generos li #fantasia {
-    width: 100%;
-    height: auto;
+.generos li::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
     border-radius: 10px;
-    margin-bottom: 0.5rem;
-    background-image: url('https://img.freepik.com/fotos-premium/dragon-volando-cielo-montanas-fondo_943617-39057.jpg?ga=GA1.1.706437868.1747777045&semt=ais_hybrid&w=740');
-    background-size: cover;
-    list-style: none;
+}
+.generos li:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .resultados {
