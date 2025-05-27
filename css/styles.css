@@ -1,13 +1,13 @@
 :root {
     /*modo claro*/
-    --sections: #61733f;
+    --sections: #50341a;
     --fondo-ppal: #F4E2BE;
     --barra-busqueda: #324021;
     --btns-claros:#c29d80;
     --marron-btns: #66492e;
     --estrellas: #BF7534;
     --texto: #080500;
-    --otro-marron: #36250e;
+    --marron-osc: #36250e;
 
     /*modo oscuro*/
     --sections-oscuro: rgba(45, 55, 30, 1);

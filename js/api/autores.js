@@ -24,7 +24,7 @@ export async function cargarAutores() {
             const btnVerMas = card.element.querySelector('.btn-ver-mas');
             if (btnVerMas) {
                 btnVerMas.addEventListener('click', () => {
-                    document.location.href = `autor.html?id=${id}`;
+                    document.location.href = `autor.html?id=${autor.id}`;
                 });
             }
 
